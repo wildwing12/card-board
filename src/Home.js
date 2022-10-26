@@ -3,10 +3,10 @@ import {
     Button,
     Col,
     Container,
-    Nav,
-    Navbar,
     Row,
-    Stack,
+    // Nav,
+    // Navbar,
+    // Stack,
   } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Layout from "./Layout";

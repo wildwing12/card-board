@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-<<<<<<< HEAD
     Button,
     Col,
     Container,
@@ -9,16 +8,6 @@ import {
     // Navbar,
     // Stack,
   } from "react-bootstrap";
-=======
-  Button,
-  Col,
-  Container,
-  Nav,
-  Navbar,
-  Row,
-  Stack,
-} from "react-bootstrap";
->>>>>>> ccc4a40c0df5dceeabc548a7de1866b43a9ca9f3
 import Card from "react-bootstrap/Card";
 import { test } from "./api";
 import Layout from "./Layout";

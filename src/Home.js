@@ -1,27 +1,19 @@
 import React, { useEffect, useState } from "react";
 import {
-<<<<<<< HEAD
-    Button,
-    Col,
-    Container,
-    Row,
-    // Nav,
-    // Navbar,
-    // Stack,
-  } from "react-bootstrap";
-=======
   Button,
   Col,
   Container,
-  Nav,
-  Navbar,
   Row,
-  Stack,
+  // Nav,
+  // Navbar,
+  // Stack,
 } from "react-bootstrap";
->>>>>>> ccc4a40c0df5dceeabc548a7de1866b43a9ca9f3
 import Card from "react-bootstrap/Card";
 import { test } from "./api";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2";
 import Layout from "./Layout";
+import { sweet } from "./common/util";
 
 const Home = () => {
   const [list, setList] = useState({});
@@ -45,7 +37,12 @@ const Home = () => {
               <Card.Body>
                 <Card.Title>{list?.data?.title}</Card.Title>
                 <Card.Text>{list?.data?.contents}</Card.Text>
-                <Button variant="primary">페이지 이동</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => sweet("삭제", "삭제2", "question")}
+                >
+                  페이지 이동
+                </Button>
               </Card.Body>
             </Card>
           </Col>

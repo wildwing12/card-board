@@ -7,9 +7,9 @@ const Layout = ({ children }) => {
     <>
       <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Link to="/" style={{ textDecoration: "none" }}><Navbar.Brand href="#home">Navbar</Navbar.Brand></Link>
           <Nav className="me-auto">
-            <Link to="/write"><Nav.Link href="#write">Write</Nav.Link></Link>
+            <Link to="/write" style={{ textDecoration: "none" }}><Nav.Link href="#write">Write</Nav.Link></Link>
             <Nav.Link href="#features">Features</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>

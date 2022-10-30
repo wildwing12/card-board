@@ -1,18 +1,42 @@
-import React, { useState, Component } from 'react'
+import React, { useState } from 'react'
 import Layout from './../Layout'
 import Button from 'react-bootstrap/Button'
 import ReactQuill from 'react-quill'
 import { modules, formats } from '../common/editorConstant'
 import CustomToolbar from '../common/quillToolBar'
+import { useNavigate } from 'react-router-dom'
+import { addCard } from '../api'
+import Swal from 'sweetalert2'
 
 const Write = () => {
 
-  const [text, setText] = useState("");
-
+  const navigate = useNavigate();
+  // quills edit
+  const [text, setText] = useState("")
+  const [title, setTitle] = useState("")
+  const [inputValue, setInputValue] = useState("")
+  // quills edit
   const handleText = (value) => {
     console.log(value);
     setText(value);
   };
+
+  const titleChange = (e) => {
+    console.log(title)
+    setTitle(e.target.value)
+  }
+
+
+  const addList = () => {
+    const array = {
+        title: title,
+        contents: text,
+        author: "양송현",
+        thumbnail: "",
+    }
+    addCard(array)
+    navigate(-1)
+  }
   
   return (
     <Layout>
@@ -28,20 +52,31 @@ const Write = () => {
               />
       </div> */}
       
-      <div style={{ padding:"50px" }}>
+      <div style={{ padding:"3% 23%" }}>
         <div style={{margin:"0px 0px 40px 0px"}}>
-          <h4 style={{fontWeight: "bold"}}>타이틀입니다</h4>
+          <h5 style={{fontWeight: "bold"}}>
+            <input onChange={
+              // (e)=> setTitle(e.target.value)
+              titleChange
+              } value={title} />
+          </h5>
           <p style={{fontWeight: "500"}}>작성일자: 2022-10-27</p>
         </div>
         <div className="text-editor" style={{ marginBottom: "30px"}}>
           <CustomToolbar style={{width: "100%", border:"1px solid blue"}} />
-          <ReactQuill style={{width: "100%", height: "600px"}}  modules={modules} formats={formats} value={text} 
-          // onChange={handleText} 
+          <ReactQuill style={{width: "100%", height: "500px"}} 
+           modules={modules} 
+           formats={formats} 
+           value={text} 
+           onChange={(e) => 
+            setText(e)
+          // console.log("e",e)
+        }
           />
         </div>
         <div style={{ width: "100%", display:"flex", justifyContent: "center" }}>
-          <Button variant="outline-primary">입력</Button> &nbsp;&nbsp;
-          <Button variant="outline-secondary">취소</Button>
+          <Button variant="outline-primary" onClick={() => addList()}>입력</Button> &nbsp;&nbsp;
+          <Button variant="outline-secondary" onClick={() => navigate(-1)}>취소</Button>
         </div>
       </div>
     </Layout>

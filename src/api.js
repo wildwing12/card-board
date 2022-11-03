@@ -19,3 +19,8 @@ export const preview = async () => {
   const result = await axios.get("/board/preview");
   return result;
 };
+export const addCard = async (param) => {
+  console.log("param", param);
+  const result = await axios.post("/board", param);
+  return result;
+};
